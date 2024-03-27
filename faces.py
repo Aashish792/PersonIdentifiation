@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import pickle
+import fickling
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
 eye_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_eye.xml')
@@ -11,7 +11,7 @@ recognizer.read("./recognizers/face-trainner.yml")
 
 labels = {"person_name": 1}
 with open("pickles/face-labels.pickle", 'rb') as f:
-    og_labels = pickle.load(f)
+    og_labels = fickling.load(f)
     labels = {v: k for k, v in og_labels.items()}
 
 cap = cv2.VideoCapture(0)
